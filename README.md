@@ -1,1 +1,1 @@
-# projeto_django
+Colaboradores: Daltro Oliveira Vinuto e Kyara Esteves de Sousa
