@@ -1,5 +1,5 @@
 [project]
-name = "projeto-django"
+name = "projeto_django"
 version = "0.1.0"
 description = ""
 authors = [
