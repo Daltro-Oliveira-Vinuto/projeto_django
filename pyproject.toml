@@ -20,5 +20,6 @@ build-backend = "poetry.core.masonry.api"
 dev = [
     "django (>=6.0,<7.0)",
     "python-dotenv (>=1.2.1,<2.0.0)",
-    "psycopg (>=3.3.1,<4.0.0)"
+    "psycopg (>=3.3.1,<4.0.0)",
+    "djangorestframework (>=3.16.1,<4.0.0)"
 ]
