@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Aluno, Professor, Turma, Matriculas
+from .models import Aluno, Professor, Turma, Matriculas, Presenca
 
 class AlunoSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -22,3 +22,8 @@ class MatriculasSerializer(serializers.ModelSerializer):
 		model = Matriculas 
 		fields = '__all__'
 
+
+class PresencaSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Presenca
+		fields = "__all__"

@@ -3,9 +3,12 @@ from django.shortcuts import render, redirect
 from rest_framework import generics
 from drf_spectacular.utils import extend_schema
 
-from .models import Aluno, Professor, Turma, Matriculas 
+from .models import Aluno, Professor, Turma, Matriculas, Presenca 
+
 from .serializers import AlunoSerializer, ProfessorSerializer
 from .serializers import TurmaSerializer, MatriculasSerializer
+from .serializers import PresencaSerializer
+
 
 # Create your views here.
 
@@ -94,6 +97,31 @@ class MatriculasDetail(generics.RetrieveUpdateDestroyAPIView):
 
 	queryset = Matriculas.objects.all()
 	serializer_class = MatriculasSerializer 
+
+	@extend_schema(summary="", description="")
+	def get(self, request, *args, **kwargs):
+		return super().get(request, *args, **kwargs)
+
+
+class PresencaCreate(generics.ListCreateAPIView):
+	
+	queryset = Presenca.objects.all()
+	serializer_class = PresencaSerializer 
+
+	@extend_schema(summary="", description="")
+	def get(self, request, *args, **kwargs):
+		return super().get(request, *args, **kwargs)
+
+	@extend_schema(summary="", description="")
+	def pos(tself, request, *args, **kwargs):
+		return super().post(request, *args, **kwargs)
+	
+	
+
+class PresencaDetail(generics.RetrieveUpdateDestroyAPIView):
+
+	queryset = Presenca.objects.all()
+	serializer_class = PresencaSerializer 
 
 	@extend_schema(summary="", description="")
 	def get(self, request, *args, **kwargs):

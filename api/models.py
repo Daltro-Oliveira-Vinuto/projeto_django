@@ -64,5 +64,15 @@ class Matriculas(models.Model):
 		ordering = ["aluno"]
 
 
+class Presenca(models.Model):
+	matricula_id = models.ForeignKey(Matriculas, on_delete=models.CASCADE)
+	data = models.DateField(null=True, blank=True)
+	status = models.CharField(max_length=255,null=True, blank=True)
 
+	def __str__(self):
+		return self.matricula_id 
+
+
+	class Meta:
+		ordering = ['data']
 

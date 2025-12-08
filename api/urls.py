@@ -4,6 +4,7 @@ from .views import AlunoCreate, AlunoDetail
 from .views import ProfessorCreate, ProfessorDetail
 from .views import TurmaCreate, TurmaDetail
 from .views import MatriculasCreate, MatriculasDetail
+from .views import PresencaCreate, PresencaDetail
 
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
@@ -20,6 +21,9 @@ urlpatterns = [
 
 	path('matriculas/', MatriculasCreate.as_view(), name='matriculas'),
 	path('matriculas/<int:pk>/', MatriculasDetail.as_view(), name='matriculas-detail'),
+
+	path('presencas/', PresencaCreate.as_view(), name='presencas'),
+	path('presencas<int:pk>/', PresencaDetail.as_view(), name='presenca-detail'),
 
 	path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
 	path('api/docs/swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
