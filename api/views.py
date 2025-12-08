@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
 
 from rest_framework import generics
+
 from drf_spectacular.utils import extend_schema
+
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from .models import Aluno, Professor, Turma, Matriculas, Presenca 
 
@@ -36,6 +40,9 @@ class AlunoDetail(generics.RetrieveUpdateDestroyAPIView):
 		return super().get(request, *args, **kwargs)
 
 class ProfessorCreate(generics.ListCreateAPIView):
+	authentication_classes = [JWTAuthentication]
+	permission_classes = [IsAuthenticated]
+
 	queryset = Professor.objects.all()
 	serializer_class = ProfessorSerializer 
 

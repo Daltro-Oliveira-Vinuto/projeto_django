@@ -2,3 +2,6 @@
 **/__pycache__
 __pycache__
 *__pycache__*
+api/__pycache__*
+django_admin/__pycache__*
+api/migrations/__pycache__*
