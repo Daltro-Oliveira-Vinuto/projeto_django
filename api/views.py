@@ -76,7 +76,7 @@ class TurmaDetail(generics.RetrieveUpdateDestroyAPIView):
 		return super().get(request, *args, **kwargs)
 
 class MatriculasCreate(generics.ListCreateAPIView):
-	"""
+	
 	queryset = Matriculas.objects.all()
 	serializer_class = MatriculasSerializer 
 
@@ -87,16 +87,14 @@ class MatriculasCreate(generics.ListCreateAPIView):
 	@extend_schema(summary="", description="")
 	def pos(tself, request, *args, **kwargs):
 		return super().post(request, *args, **kwargs)
-	"""
-	pass
+	
+	
 
 class MatriculasDetail(generics.RetrieveUpdateDestroyAPIView):
-	pass
-	"""
+
 	queryset = Matriculas.objects.all()
 	serializer_class = MatriculasSerializer 
 
 	@extend_schema(summary="", description="")
 	def get(self, request, *args, **kwargs):
 		return super().get(request, *args, **kwargs)
-	"""
