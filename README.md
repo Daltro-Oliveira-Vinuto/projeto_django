@@ -180,6 +180,6 @@ Siga os passos abaixo para configurar o ambiente local.
    python manage.py collectstatic
    ```
 
-> **CI/CD:** Integração com GitHub Actions disponível em `.github/workflows/deploy.yml`.
+> O Deploy desse projeto esta disponível no link do Render: ![Deploy](https://projeto-django-kpbx.onrender.com/api/docs/swagger/)
 
 
