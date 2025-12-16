@@ -55,26 +55,51 @@ Liste todos os pacotes Python necessários, com versões recomendadas. Utilize u
 Apresente a organização dos diretórios e arquivos principais. Utilize uma árvore de diretórios para visualização clara.
 
 ```
-projeto_api/
+$ tree
+.
+├── api
+│   ├── admin.py
+│   ├── apps.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── 0001_initial.cpython-312.pyc
+│   │       └── __init__.cpython-312.pyc
+│   ├── models.py
+│   ├── __pycache__
+│   │   ├── admin.cpython-312.pyc
+│   │   ├── apps.cpython-312.pyc
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── models.cpython-312.pyc
+│   │   ├── serializers.cpython-312.pyc
+│   │   ├── urls.cpython-312.pyc
+│   │   └── views.cpython-312.pyc
+│   ├── serializers.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── build.sh
 ├── manage.py
-├── requirements.txt
-├── .env.example
-├── projeto/
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── apps/
-│   ├── core/
-│   │   ├── models.py
-│   │   ├── views.py
-│   │   ├── serializers.py
-│   │   └── urls.py
-│   └── ...
-├── docs/
-│   └── database_diagram.png
-└── scripts/
-    └── deploy.sh
+├── poetry.lock
+├── projeto_django
+│   ├── asgi.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── settings.cpython-312.pyc
+│   │   ├── urls.cpython-312.pyc
+│   │   └── wsgi.cpython-312.pyc
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── pyproject.toml
+├── README.md
+└── render.yaml
+
+7 directories, 34 files
+
 ```
 
 Descreva brevemente o propósito de cada diretório e módulo relevante.
