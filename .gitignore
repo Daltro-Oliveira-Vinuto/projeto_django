@@ -5,3 +5,4 @@ __pycache__
 api/__pycache__*
 django_admin/__pycache__*
 api/migrations/__pycache__*
+*/__pycache__/*
