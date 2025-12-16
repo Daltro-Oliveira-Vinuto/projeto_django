@@ -4,7 +4,7 @@ set -o errexit
 # pip install -r requirements.txt
 
 echo "installing dependencies with poetry"
-poetry install --no-root --width dev
+poetry install --with dev
 
 
 echo "collecting static files"
