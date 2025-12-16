@@ -19,17 +19,14 @@ from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-#load_dotenv(BASE_DIR / '.env')
-load_dotenv()
+load_dotenv() # tries to load from  BASE_DIR /.env
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = False
-    
-if DEBUG:
-    # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-if DEBUG == False:
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
+if !DEBUG:
     ALLOWED_HOSTS = ["*"]
 
 
@@ -119,7 +116,7 @@ WSGI_APPLICATION = 'projeto_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-if DEBUG == True:
+if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': "django.db.backends.postgresql",

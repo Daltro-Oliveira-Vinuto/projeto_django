@@ -18,9 +18,9 @@ Including another URLconf
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
 
 
-DEBUG = False
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,7 +32,7 @@ urlpatterns = [
 
 ] 
 
-if DEBUG:
+if settings.DEBUG:
     from debug_toolbar.toolbar import debug_toolbar_urls
 
     urlpatterns+= debug_toolbar_urls()
