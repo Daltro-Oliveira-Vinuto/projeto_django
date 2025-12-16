@@ -28,6 +28,11 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
     
-    path("", include("api.urls")),
+    path("api/", include("api.urls")),
 
-] + debug_toolbar_urls()
+] 
+
+if DEBUG:
+    from debug_toolbar.toolbar import debug_toolbar_urls
+
+    urlpatterns+= debug_toolbar_urls()
