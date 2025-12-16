@@ -21,6 +21,7 @@ from django.urls import path, include
 
 from debug_toolbar.toolbar import debug_toolbar_urls
 
+DEBUG = False
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,7 +29,7 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
     
-    path("api/", include("api.urls")),
+    path("", include("api.urls")),
 
 ] 
 
