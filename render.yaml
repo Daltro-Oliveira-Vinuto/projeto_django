@@ -10,7 +10,9 @@ services:
     name: projeto_django
     runtime: python
     buildCommand: './build.sh'
-    startCommand: 'poetry run python -m gunicorn projeto_django.asgi:application -k uvicorn.workers.UvicornWorker'
+    startCommand: >
+      poetry run python manage.py migrate &&
+      poetry run python -m gunicorn projeto_django.asgi:application -k uvicorn.workers.UvicornWorker
     envVars:
       - key: DATABASE_URL
         fromDatabase:
