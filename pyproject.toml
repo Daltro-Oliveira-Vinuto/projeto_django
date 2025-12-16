@@ -7,7 +7,7 @@ authors = [
     {name = "Kyara-Esteves-de-Sousa",email = "shadoxkan@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.13"
 dependencies = [
     "django (>=6.0,<7.0)",
     "python-dotenv (>=1.2.1,<2.0.0)",
@@ -28,18 +28,3 @@ dependencies = [
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[dependency-groups]
-dev = [
-    "django (>=6.0,<7.0)",
-    "python-dotenv (>=1.2.1,<2.0.0)",
-    "psycopg (>=3.3.1,<4.0.0)",
-    "djangorestframework (>=3.16.1,<4.0.0)",
-    "django-extensions (>=4.1,<5.0)",
-    "django-debug-toolbar (>=6.1.0,<7.0.0)",
-    "drf-spectacular (>=0.29.0,<0.30.0)",
-    "drf-spectacular[swagger] (>=0.29.0,<0.30.0)",
-    "drf-spectacular[redoc] (>=0.29.0,<0.30.0)",
-    "djangorestframework-simplejwt (>=5.5.1,<6.0.0)",
-    "gunicorn (>=23.0.0,<24.0.0)",
-    "uvicorn (>=0.38.0,<0.39.0)"
-]
