@@ -19,7 +19,8 @@ from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv(BASE_DIR / '.env')
+if DEBUG:
+    load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -31,8 +32,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-
-ALLOWED_HOSTS = []
+if DEBUG == False:
+    ALLOWED_HOSTS = ["*"]
 
 
 INTERNAL_IPS = ['127.0.0.1']
@@ -47,8 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    "django_extensions",
-    "debug_toolbar",
     "rest_framework",
 
     "drf_spectacular",
@@ -57,6 +56,12 @@ INSTALLED_APPS = [
     "api",
     
 ]
+
+if DEBUG:
+    INSTALLED_APPS+= [
+    "django_extensions",
+    "debug_toolbar",
+    ]
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
@@ -80,7 +85,6 @@ SIMPLE_JWT = {
 
 
 MIDDLEWARE = [
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -90,6 +94,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+if DEBUG:
+    MIDDLEWARE.insert(0,"debug_toolbar.middleware.DebugToolbarMiddleware",
+)
 
 ROOT_URLCONF = 'projeto_django.urls'
 
