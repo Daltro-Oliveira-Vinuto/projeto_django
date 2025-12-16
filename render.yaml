@@ -2,7 +2,7 @@ databases:
   - name: projeto_django_database
     plan: free
     databaseName: projeto_django_database
-    user: projeto_django_user
+    user: projeto_django
 
 services:
   - type: web
