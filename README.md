@@ -436,57 +436,256 @@ A autenticação é baseada em **tokens** (ex.: JWT ou Token Authentication do D
 
 Siga os passos abaixo para configurar o ambiente local.
 
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/usuario/projeto_api.git
-   cd projeto_api
-   ```
-
-2. **Crie um ambiente virtual:**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Linux/Mac
-   venv\Scripts\activate     # Windows
-   ```
-
-3. **Instale as dependências:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Configure as variáveis de ambiente:**
-   ```bash
-   cp .env.example .env
-   # Edite .env com suas credenciais
-   ```
-
-5. **Aplique as migrações e inicie o servidor:**
-   ```bash
-   python manage.py migrate
-   python manage.py runserver
-   ```
-
-## Deploy(opcional)
-
-### Plataforma Recomendada: [Render / Railway / AWS]
-
-1. **Prepare o `Procfile`:**
-   ```
-   web: gunicorn projeto.wsgi:application --log-file -
-   ```
-
-2. **Configure variáveis de ambiente** na plataforma de deploy.
-
-3. **Execute migrações em produção:**
-   ```bash
-   python manage.py migrate
-   ```
-
-4. **Colete arquivos estáticos (se aplicável):**
-   ```bash
-   python manage.py collectstatic
-   ```
-
-> O Deploy desse projeto esta disponível no link do Render: [Deploy](https://projeto-django-kpbx.onrender.com/api/docs/swagger/)
+# Configuração do Ambiente Local
 
 
+Este guia descreve o passo a passo para configurar e executar o projeto localmente em ambiente de desenvolvimento.
+
+---
+
+## Pré-requisitos
+
+Certifique-se de que os seguintes itens estejam instalados na sua máquina:
+
+* Python 3.10 ou superior
+* Poetry
+* PostgreSQL
+* Git
+
+---
+
+## 1. Clonar o Repositório
+
+```bas
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
+```
+---
+
+## 2. Ativar o Ambiente Virtual com Poetry
+
+Antes de qualquer comando, é necessário **ativar o ambiente virtual** gerenciado pelo Poetry:
+
+```bash
+poetry shell
+```
+
+> ⚠️ Todos os comandos seguintes devem ser executados **com o ambiente virtual ativo**.
+
+---
+
+## 3. Instalar as Dependências do Projeto
+
+Com o ambiente ativado, instale todas as dependências definidas no `pyproject.toml`:
+
+```bash
+poetry install
+```
+---
+
+## 4. Criar o Arquivo `.env`
+
+Na raiz do projeto, crie um arquivo chamado `.env` contendo as variáveis de ambiente necessárias para a configuração do banco de dados, utilizadas em `settings.DATABASES`.
+
+### Exemplo de `.env`:
+
+```env
+DEBUG=True
+SECRET_KEY=sua-chave-secreta-aqui
+
+
+DB_NAME=chamada_alunos
+DB_USER=postgres
+DB_PASSWORD=senha_do_banco
+DB_HOST=localhost
+DB_PORT=5432
+```
+
+> 🔒 **Importante:** Nunca versionar o arquivo `.env` no repositório.
+
+---
+
+## 5. Verificar o SQL Gerado pelas Migrações (Recomendado)
+
+Antes de aplicar as migrações no banco de dados, recomenda-se verificar o SQL que será executado:
+
+```bash
+python manage.py sqlmigrate database_diagram 0001
+```
+
+Substitua `0001` pelo número da migração desejada, caso existam outras.
+
+---
+
+## 6. Aplicar as Migrações
+
+
+Após a verificação do SQL, execute as migrações para criar as tabelas no banco de dados:
+
+
+```bash
+python manage.py migrate
+```
+---
+
+## 7. Criar Superusuário (Opcional, Recomendado)
+
+Para acessar o painel administrativo do Django:
+
+```bash
+python manage.py createsuperuser
+```
+
+---
+
+## 8. Executar o Servidor de Desenvolvimento
+
+Inicie o servidor local do Django:
+
+```bash
+python manage.py runserver
+```
+
+O projeto estará disponível em:
+
+```
+http://127.0.0.1:8000/
+```
+---
+
+## Considerações Finais
+
+* Certifique-se de que o serviço do PostgreSQL esteja em execução.
+* Caso altere models, gere novas migrações com:
+
+ ```bash
+ python manage.py makemigrations
+ ```
+* Sempre valide o SQL com `sqlmigrate` antes de aplicar mudanças em ambientes controlados.
+
+Este procedimento garante um ambiente local consistente e alinhado às boas práticas de desenvolvimento com Django e Poetry.
+
+## Deploy
+
+# Deploy no Render
+
+Este projeto está configurado para deploy automático na plataforma **Render**, utilizando **Blueprints**, com os arquivos `render.yaml` e `build.sh`, garantindo padronização e reprodutibilidade do ambiente de produção.
+
+🔗 **Aplicação em produção:**
+[https://projeto-django-kpbx.onrender.com/api/docs/swagger/](https://projeto-django-kpbx.onrender.com/api/docs/swagger/)
+
+---
+
+## Visão Geral da Estratégia de Deploy
+
+O deploy é realizado a partir de um **Blueprint do Render**, que descreve toda a infraestrutura necessária (serviço web, variáveis de ambiente e comandos de build) em um único arquivo declarativo (`render.yaml`).
+
+O processo de build e inicialização da aplicação é controlado por um script (`build.sh`), garantindo consistência entre ambientes.
+
+---
+
+## Passo a Passo do Deploy
+
+### 1. Criar Conta e Conectar o Repositório
+
+1. Acesse [https://render.com](https://render.com)
+2. Crie uma conta ou faça login.
+3. Conecte sua conta ao repositório GitHub que contém o projeto.
+4. Garanta que o repositório possua os arquivos:
+
+
+  * `render.yaml`
+  * `build.sh`
+  * `pyproject.toml`
+
+---
+
+### 2. Configurar o Blueprint (`render.yaml`)
+
+O arquivo `render.yaml` define os serviços necessários para a aplicação, incluindo o serviço web Django e suas variáveis de ambiente.
+
+Principais responsabilidades do `render.yaml`:
+
+* Definir o tipo de serviço (`web`)
+* Configurar o comando de build
+* Configurar o comando de start
+* Declarar variáveis de ambiente sensíveis
+* Associar o serviço ao repositório
+
+---
+
+### 3. Script de Build (`build.sh`)
+
+O arquivo `build.sh` é executado automaticamente durante o processo de build no Render e é responsável por:
+
+* Instalar dependências via Poetry
+* Coletar arquivos estáticos
+* Executar migrações do banco de dados
+
+Fluxo típico executado pelo script:
+
+1. Instalação das dependências
+2. Coleta de arquivos estáticos
+3. Aplicação das migrações (`migrate`)
+
+---
+
+### 4. Criação do Serviço via Blueprint
+
+1. No painel do Render, selecione **New + → Blueprint**.
+2. Escolha o repositório do projeto.
+3. O Render detectará automaticamente o arquivo `render.yaml`.
+4. Revise as configurações exibidas.
+5. Confirme a criação do serviço.
+
+Após a confirmação, o Render iniciará automaticamente o processo de build e deploy.
+
+---
+
+### 5. Configuração das Variáveis de Ambiente
+
+As variáveis de ambiente definidas no `render.yaml` ou no painel do Render incluem:
+
+* `DEBUG`
+* `SECRET_KEY`
+* `DATABASE_URL`
+* Variáveis relacionadas ao Django e PostgreSQL
+
+Essas variáveis são injetadas automaticamente no ambiente de produção e utilizadas pelo `settings.py`.
+
+---
+
+### 6. Execução Automática do Deploy
+
+Sempre que um novo commit é enviado para a branch principal do repositório:
+
+* O Render inicia um novo build
+* Executa o `build.sh`
+* Reinicia o serviço automaticamente
+
+Esse fluxo garante **deploy contínuo (CI/CD)**.
+
+---
+
+## Verificação do Deploy
+
+Após a conclusão do deploy, a aplicação pode ser acessada pelo seguinte endereço:
+
+🔗 [https://projeto-django-kpbx.onrender.com/api/docs/swagger/](https://projeto-django-kpbx.onrender.com/api/docs/swagger/)
+
+Neste endpoint é possível:
+
+* Visualizar a documentação da API (Swagger)
+* Testar requisições diretamente no navegador
+* Validar autenticação e endpoints
+
+---
+
+## Considerações Finais
+
+* O uso de **Blueprints** garante versionamento da infraestrutura.
+* O `render.yaml` centraliza a configuração do ambiente.
+* O `build.sh` assegura consistência no processo de build.
+* O deploy é automatizado e reprodutível.
+
+Esse modelo segue boas práticas de **DevOps**, **infraestrutura como código** e **deploy contínuo**.
