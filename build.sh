@@ -8,7 +8,7 @@ poetry install
 
 
 #echo "collecting static files"
-#poetry run python manage.py collectstatic --no-input
+poetry run python manage.py collectstatic --no-input
 
 #echo "running migrations"
 #poetry run python manage.py migrate
