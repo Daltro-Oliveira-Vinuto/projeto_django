@@ -105,6 +105,8 @@ $ tree
 │   ├── urls.py
 │   └── views.py
 ├── build.sh
+├── docs
+│   └── database_diagram.png
 ├── manage.py
 ├── poetry.lock
 ├── projeto_django
@@ -122,7 +124,7 @@ $ tree
 ├── README.md
 └── render.yaml
 
-7 directories, 34 files
+8 directories, 35 files
 
 ```
 
