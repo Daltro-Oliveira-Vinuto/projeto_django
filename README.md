@@ -131,13 +131,116 @@ $ tree
 
 ```
 
-Descreva brevemente o propósito de cada diretório e módulo relevante.
+## Estrutura do Projeto
+
+
+A seguir está a descrição dos diretórios e módulos que compõem o projeto.
+
+
+### Diretórios Principais
+
+
+- **api/** 
+ Contém a aplicação principal da API, responsável pela lógica de negócio, modelos de dados, serialização e endpoints REST.
+
+
+- **projeto_django/** 
+ Diretório de configuração global do projeto Django, incluindo definições de URLs, settings e interfaces WSGI/ASGI.
+
+
+- **migrations/** 
+ Armazena os arquivos de migração do banco de dados, responsáveis por versionar a estrutura das tabelas.
+
+
+- **__pycache__/** 
+ Diretórios gerados automaticamente pelo Python para armazenar bytecode compilado (`.pyc`).
+
+
+### Arquivos e Módulos Relevantes
+
+
+#### Diretório `api/`
+
+
+- **admin.py** 
+ Registro dos modelos da aplicação para gerenciamento via Django Admin.
+
+
+- **apps.py** 
+ Configuração da aplicação `api`, incluindo metadados e inicialização.
+
+
+- **models.py** 
+ Definição das entidades do domínio e mapeamento objeto-relacional (ORM).
+
+
+- **serializers.py** 
+ Serialização e desserialização dos modelos para comunicação via API REST.
+
+
+- **views.py** 
+ Implementação das views da API, contendo a lógica dos endpoints.
+
+
+- **urls.py** 
+ Mapeamento das rotas da aplicação `api` para suas respectivas views.
+
+
+- **tests.py** 
+ Estrutura para testes automatizados da aplicação.
+
+
+#### Diretório `projeto_django/`
+
+
+- **settings.py** 
+ Configurações globais do projeto, incluindo banco de dados, apps instalados, middlewares e variáveis de ambiente.
+
+
+- **urls.py** 
+ Arquivo central de roteamento do projeto, agregando as URLs das aplicações.
+
+
+- **asgi.py** 
+ Ponto de entrada ASGI para execução assíncrona da aplicação.
+
+
+- **wsgi.py** 
+ Ponto de entrada WSGI utilizado por servidores de produção como o Gunicorn.
+
+
+### Arquivos na Raiz do Projeto
+
+
+- **manage.py** 
+ Utilitário de linha de comando do Django para execução de tarefas administrativas.
+
+
+- **pyproject.toml** 
+ Arquivo de configuração do Poetry, contendo dependências, versões e metadados do projeto.
+
+
+- **poetry.lock** 
+ Lockfile que garante a reprodutibilidade das dependências instaladas.
+
+
+- **render.yaml** 
+ Arquivo de configuração do Render para provisionamento de recursos e deploy automatizado via Docker.
+
+
+- **build.sh** 
+ Script executado durante o processo de build no deploy, responsável por instalar dependências e preparar o ambiente.
+
+
+- **README.md** 
+ Documentação principal do projeto, contendo descrição, instruções e referências.
+
 
 ## Diagrama ER (Entidade-Relacionamento) do Banco de Dados
 
 ![Diagrama de Banco de Dados](./docs/database_diagram.png)
 
-> **Descrição:** Inclua um diagrama ER (Entidade-Relacionamento) gerado por ferramentas como `django-extensions` ou `pygraphviz`. Descreva as principais entidades, relacionamentos e campos críticos.
+> **Descrição:** Diagrama ER gerado pelo pgAdmin4 para o banco de dados Postgres . Descreva as principais entidades, relacionamentos e campos críticos.
 
 ## Documentação da API
 
