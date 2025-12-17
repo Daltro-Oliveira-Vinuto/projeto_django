@@ -6,14 +6,12 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-
-
 ## Instituições de Fomento e Parceria
 
 [![Website IFB](https://img.shields.io/badge/Website-IFB-%23508C3C.svg?labelColor=%23C8102E)](https://www.ifb.edu.br/) 
 [![Website ihwbr](https://img.shields.io/badge/Website-ihwbr-%23DAA520.svg?labelColor=%232E2E2E)](https://hardware.org.br/)
 
-## Colaborador (link para o perfil do colaborador Daltro)
+## Colaborador - Daltro Oliveira Vinuto
 
 [![LinkedIn Daltro Oliveira Vinuto](https://img.shields.io/badge/LinkedIn-Daltro_Oliveira_Vinuto-%230077B5.svg?labelColor=%23FFFFFF&logo=linkedin)]( https://www.linkedin.com/in/daltro-oliveira-vinuto-520485145/ )
 
@@ -21,7 +19,7 @@
 
 [![Lattes Daltro Oliveira Vinuto](https://img.shields.io/badge/Lattes-Daltro_Oliveira_Vinuto-green.svg?logo=cnpq&logoColor=white)]( https://www.linkedin.com/in/daltro-oliveira-vinuto-520485145/)
 
-## Colaborador (link para o perfil do colaborador Kyara)
+## Colaborador - Kyara Esteves de Sousa
 
 [![LinkedIn Kyara Esteves de Sousa](https://img.shields.io/badge/LinkedIn-Kyara_Esteves_de_Sousa-%230077B5.svg?labelColor=%23FFFFFF&logo=linkedin)]( https://www.linkedin.com/in/kyara-esteves-de-sousa-2144219b/?originalSubdomain=br  )
 
@@ -31,7 +29,7 @@
 
 
 
-## Orientador (link para o perfil do orientador Claudio)
+## Orientador - Prof. Claudio Ulisse
 
 [![LinkedIn Claudio Ulisse](https://img.shields.io/badge/LinkedIn-Claudio_Ulisse-%230077B5.svg?labelColor=%23FFFFFF&logo=linkedin)](https://www.linkedin.com/in/claudioulisse/)
 [![GitHub claulis](https://img.shields.io/badge/GitHub-claulis_(Claudio_Ulisse)-%23181717.svg?logo=github&logoColor=white)](https://github.com/claulis)
@@ -49,26 +47,41 @@
 
 ## Visão Geral
 
-Forneça uma descrição concisa do propósito da API, seus objetivos principais e o problema que resolve. Inclua informações sobre o domínio de aplicação, público-alvo e funcionalidades de alto nível.
+Esta API implementa um **Sistema de Chamada de Alunos** voltado ao contexto de **instituições públicas de ensino superior**, com o objetivo de **modernizar o processo de registro de presença** e **viabilizar análises estatísticas institucionais** sobre frequência, absenteísmo e desempenho acadêmico.
+
+O sistema está inserido no domínio da **gestão educacional**, oferecendo uma camada **backend RESTful** para o gerenciamento de **professores**, **turmas**, **alunos**, **matrículas** e **registros de presença**. A API foi projetada para ser consumida por **aplicações front-end utilizadas por docentes**, além de **dashboards de Business Intelligence (BI)** e **ferramentas de auditoria educacional**.
+
+O principal problema abordado é a **ineficiência e a baixa confiabilidade dos métodos tradicionais de chamada**, que dificultam o acompanhamento sistemático da presença e a geração de **indicadores acadêmicos consolidados**. Ao centralizar e estruturar esses dados, a API possibilita análises como **frequência média por turma**, **histórico de presença por aluno**, **carga docente** e **identificação de padrões de absenteísmo**, apoiando a **tomada de decisão institucional baseada em dados**.
+
+O público-alvo da solução inclui **administradores acadêmicos**, **professores** e **alunos**, cada um com **níveis de acesso distintos**. Em alto nível, a API disponibiliza funcionalidades de **cadastro**, **consulta** e **relacionamento de entidades acadêmicas**, **matrícula de alunos em turmas**, **marcação de presença** e **exposição de dados consolidados**, seguindo boas práticas de **arquitetura REST**, **segurança de acesso** e **manutenibilidade**.
+
 
 ## Pacotes Utilizados
 
-Liste todos os pacotes Python necessários, com versões recomendadas. Utilize um formato de tabela para maior clareza.
+## Pacotes Utilizados
 
-| Pacote                  | Versão       | Descrição                                      |
-|-------------------------|--------------|------------------------------------------------|
-| Django                  | >=5.0        | Framework web principal                        |
-| djangorestframework     | latest       | Toolkit para construção de APIs REST           |
-| psycopg2-binary         | latest       | Adaptador PostgreSQL                           |
-| django-environ          | latest       | Gerenciamento de variáveis de ambiente         |
-| drf-yasg                | latest       | Geração automática de documentação Swagger     |
-| ...                     | ...          | ...                                            |
 
-> **Nota:** Consulte o arquivo `requirements.txt` para a lista completa e versões exatas.
+| **Pacote** | **Versão** | **Descrição** |
+|------------|------------|---------------|
+| **Django** | >=6.0,<7.0 | Framework web principal para desenvolvimento do backend. |
+| **djangorestframework** | >=3.16.1,<4.0.0 | Framework para construção de APIs RESTful com Django. |
+| **drf-spectacular** | >=0.29.0,<0.30.0 | Geração automática do schema OpenAPI da API. |
+| **drf-spectacular[swagger]** | >=0.29.0,<0.30.0 | Interface Swagger UI para visualização e testes da API. |
+| **drf-spectacular[redoc]** | >=0.29.0,<0.30.0 | Interface ReDoc para documentação alternativa da API. |
+| **djangorestframework-simplejwt** | >=5.5.1,<6.0.0 | Autenticação baseada em JSON Web Tokens (JWT). |
+| **python-dotenv** | >=1.2.1,<2.0.0 | Carregamento de variáveis de ambiente a partir de arquivos `.env`. |
+| **psycopg** | >=3.3.2,<4.0.0 | Driver PostgreSQL para acesso ao banco de dados em produção. |
+| **dj-database-url** | >=3.0.1,<4.0.0 | Configuração do banco de dados via URL (deploy em nuvem). |
+| **gunicorn** | >=23.0.0,<24.0.0 | Servidor WSGI para execução da aplicação em produção. |
+| **uvicorn** | >=0.38.0,<0.39.0 | Servidor ASGI para execução assíncrona quando aplicável. |
+| **django-debug-toolbar** | >=6.1.0,<7.0.0 | Ferramenta de depuração utilizada em ambiente de desenvolvimento. |
+| **django-extensions** | >=4.1,<5.0 | Extensões utilitárias para desenvolvimento e manutenção do projeto. |
+
+> **Nota:** Esses pacotes se encontram na variável `dependencies`  do arquivo `pyproject.toml` 
 
 ## Estrutura do Projeto
 
-Apresente a organização dos diretórios e arquivos principais. Utilize uma árvore de diretórios para visualização clara.
+Abaixo podemos observar a organização dos diretórios e arquivos do projeto no formato de árvore de diretórios(comando tree) para uma clara visualização.
 
 ```
 $ tree
@@ -120,7 +133,7 @@ $ tree
 
 Descreva brevemente o propósito de cada diretório e módulo relevante.
 
-## Diagrama de Banco de Dados
+## Diagrama ER (Entidade-Relacionamento) do Banco de Dados
 
 ![Diagrama de Banco de Dados](./docs/database_diagram.png)
 
