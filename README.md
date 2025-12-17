@@ -14,19 +14,14 @@
 ## Colaborador - Daltro Oliveira Vinuto
 
 [![LinkedIn Daltro Oliveira Vinuto](https://img.shields.io/badge/LinkedIn-Daltro_Oliveira_Vinuto-%230077B5.svg?labelColor=%23FFFFFF&logo=linkedin)]( https://www.linkedin.com/in/daltro-oliveira-vinuto-520485145/ )
-
 [![GitHub Daltro Oliveira Vinuto](https://img.shields.io/badge/GitHub-Daltro_Oliveira_Vinuto_(Daltro_Oliveira_Vinuto)-%23181717.svg?logo=github&logoColor=white)]( https://github.com/Daltro-Oliveira-Vinuto )
-
 [![Lattes Daltro Oliveira Vinuto](https://img.shields.io/badge/Lattes-Daltro_Oliveira_Vinuto-green.svg?logo=cnpq&logoColor=white)]( https://www.linkedin.com/in/daltro-oliveira-vinuto-520485145/)
 
 ## Colaborador - Kyara Esteves de Sousa
 
 [![LinkedIn Kyara Esteves de Sousa](https://img.shields.io/badge/LinkedIn-Kyara_Esteves_de_Sousa-%230077B5.svg?labelColor=%23FFFFFF&logo=linkedin)]( https://www.linkedin.com/in/kyara-esteves-de-sousa-2144219b/?originalSubdomain=br  )
-
 [![GitHub Kyara Esteves de Sousa](https://img.shields.io/badge/GitHub-Kyara2(Kyara_Esteves_de_Sousa)-%23181717.svg?logo=github&logoColor=white)](https://github.com/Kyara2)
-
 [![Lattes Kyara Esteves de Sousa](https://img.shields.io/badge/Lattes-Kyara_Esteves_de_Sousa-green.svg?logo=cnpq&logoColor=white)](https://lattes.cnpq.br/4642913082106691 )
-
 
 
 ## Orientador - Prof. Claudio Ulisse
