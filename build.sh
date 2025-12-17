@@ -12,3 +12,7 @@ poetry install
 
 #echo "running migrations"
 #poetry run python manage.py migrate
+
+echo "Ensuring superuser exists..."
+poetry run python manage.py createsuperuser --noinput \
+  || echo "Superuser already exists — skipping creation"
