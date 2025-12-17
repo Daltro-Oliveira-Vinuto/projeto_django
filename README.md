@@ -1,6 +1,3 @@
-## Colaboradores: Daltro Oliveira Vinuto e Kyara Esteves de Sousa
-
-
 # API Projeto Django
 
 [![Python](https://img.shields.io/badge/Python-3.12%2B-blue.svg?logo=python)](https://www.python.org/downloads/)
