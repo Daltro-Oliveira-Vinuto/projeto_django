@@ -464,7 +464,7 @@ cd seu-repositorio
 Antes de qualquer comando, é necessário **ativar o ambiente virtual** gerenciado pelo Poetry:
 
 ```bash
-poetry shell
+poetry env activate
 ```
 
 > ⚠️ Todos os comandos seguintes devem ser executados **com o ambiente virtual ativo**.
